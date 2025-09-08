@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 
 namespace Taller1.Shared.Entities;
 
@@ -24,6 +25,6 @@ public class Employee
 
     [Display(Name = "Salario")]
     [Required(ErrorMessage = "El campo {0} es obligatorio")]
-    [Range(1000000, double.MaxValue, ErrorMessage = "El salario minimo debe de ser de ${1}")]
+    [Range(1000000, double.MaxValue, ErrorMessage = "El salario minimo debe de ser de ${1:N2}")]
     public decimal Salary { get; set; }
 }
