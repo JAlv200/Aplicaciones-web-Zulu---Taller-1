@@ -5,14 +5,13 @@ using Taller1.Shared.Responses;
 
 namespace Taller1.Backend.UnitsOfWork.Implementations;
 
-public class EmployeesUnitOfWork : GenericUnitOfWork<Employee>, IEmployeesUnitOfWork
+public class EmployeesUnitOfWork : IEmployeesUnitOfWork
 {
-    private readonly IGenericRepository<Employee> _repository;
     private readonly IEmployeesRepository _employeesRepository;
 
-    public EmployeesUnitOfWork(IGenericRepository<Employee> repository, IEmployeesRepository employeesRepository) : base(repository)
+    //Reducing some logic, no heritage of GenericUnitOfWork
+    public EmployeesUnitOfWork(IEmployeesRepository employeesRepository)
     {
-        _repository = repository;
         _employeesRepository = employeesRepository;
     }
 
