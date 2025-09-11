@@ -1,32 +1,40 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Taller1.Backend.Data;
-using Taller1.Backend.UnitsOfWork.Interfaces;
 using Taller1.Shared.Entities;
 
 namespace Taller1.Backend.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class EmployeesController : GenericController<Employee>
+public class EmployeesController : ControllerBase
 {
-    private readonly IGenericUnitOfWork<Employee> _unitOfWork;
-    private readonly IEmployeesUnitOfWork _employeesUnitOfWork;
+    private readonly DataContext _context;
 
-    public EmployeesController(IGenericUnitOfWork<Employee> unitOfWork, IEmployeesUnitOfWork employeesUnitOfWork) : base(unitOfWork)
+    public EmployeesController(DataContext context)
     {
-        _unitOfWork = unitOfWork;
-        _employeesUnitOfWork = employeesUnitOfWork;
+        _context = context;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAsync()
+    {
+        return Ok(await _context.Employees.ToListAsync());
     }
 
     [HttpGet("{name}")]
-    public virtual async Task<IActionResult> GetAsync(string name)
+    public async Task<IActionResult> GetAsync(string name)
     {
-        var action = await _employeesUnitOfWork.GetAsync(name);
-        if (action.WasSuccess)
-        {
-            return Ok(action.Result);
-        }
-        return BadRequest(action.Message);
+        return Ok(await _context.Employees.Where
+            (x => x.FirstName.Contains(name) || x.LastName.Contains(name))
+            .ToListAsync());
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> PostAsync(Employee employee)
+    {
+        _context.Add(employee);
+        await _context.SaveChangesAsync();
+        return Ok(employee);
     }
 }
