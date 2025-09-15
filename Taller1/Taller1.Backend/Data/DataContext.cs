@@ -14,5 +14,6 @@ public class DataContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<Employee>().Property(x => x.Salary).HasPrecision(18, 2); // Precision decimal
     }
 }

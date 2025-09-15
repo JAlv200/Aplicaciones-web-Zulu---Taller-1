@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace Taller1.Backend.Data;
+﻿namespace Taller1.Backend.Data;
 
 public class SeedDb
 {
@@ -35,8 +33,6 @@ public class SeedDb
             {
                 FirstName = "Ana Marina",
                 LastName = "Giraldo",
-                IsActive = false,
-                HireDate = new DateTime(2024, 3, 12, 03, 12, 0),
                 Salary = 2500000.00m
             });
             // Registro3
@@ -53,7 +49,6 @@ public class SeedDb
             {
                 FirstName = "Sofia",
                 LastName = "Garcia",
-                IsActive = false,
                 HireDate = null,
                 Salary = 1750000.00m
             });
