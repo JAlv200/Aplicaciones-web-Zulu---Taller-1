@@ -30,7 +30,7 @@ void seedData(WebApplication app)
 
     using var scope = scopedFactory!.CreateScope();
     var service = scope.ServiceProvider.GetService<SeedDb>();
-    service!.SeedAsync().Wait(); // Wait para llamar asincrono dentro de metodo sincrono
+    service!.SeedAsync().Wait(); // Wait to call async from sync program
 }
 
 if (app.Environment.IsDevelopment())

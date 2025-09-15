@@ -19,23 +19,23 @@ public class SeedDb
     {
         if (!_context.Employees.Any())
         {
-            // Registro1
+            // Reg1
             _context.Employees.Add(new Shared.Entities.Employee
             {
                 FirstName = "Juan Fernando",
                 LastName = "Garcia",
                 IsActive = true,
-                HireDate = new DateTime(2024, 3, 12, 03, 12, 0), // Crear fechas manualmente con año, mes, dia, hora, min, sec
-                Salary = new Random().Next(1100000, 10000001) // Generar numeros aleatorios entre 1.1M y 10M
+                HireDate = new DateTime(2024, 3, 12, 03, 12, 0), // Create dates manually with DateTime ctor
+                Salary = new Random().Next(1100000, 10000001) // Generate random numbers between 1.1M and 10M
             });
-            // Registro2
+            // Reg2
             _context.Employees.Add(new Shared.Entities.Employee
             {
                 FirstName = "Ana Marina",
                 LastName = "Giraldo",
                 Salary = 2500000.00m
             });
-            // Registro3
+            // Reg3
             _context.Employees.Add(new Shared.Entities.Employee
             {
                 FirstName = "Juan Esteban",
@@ -44,7 +44,7 @@ public class SeedDb
                 HireDate = new DateTime(2024, 3, 12, 03, 12, 0),
                 Salary = new Random().Next(1100000, 10000001)
             });
-            // Registro4
+            // Reg4
             _context.Employees.Add(new Shared.Entities.Employee
             {
                 FirstName = "Sofia",
@@ -52,7 +52,7 @@ public class SeedDb
                 HireDate = null,
                 Salary = 1750000.00m
             });
-            // Registro5
+            // Reg5
             _context.Employees.Add(new Shared.Entities.Employee
             {
                 FirstName = "Leonardo",
@@ -61,7 +61,7 @@ public class SeedDb
                 HireDate = new DateTime(2023, 2, 22, 04, 30, 0),
                 Salary = new Random().Next(1100000, 10000001)
             });
-            // Registro6
+            // Reg6
             _context.Employees.Add(new Shared.Entities.Employee
             {
                 FirstName = "Juan Pablo",
@@ -70,7 +70,7 @@ public class SeedDb
                 HireDate = new DateTime(2022, 7, 14, 02, 32, 0),
                 Salary = 3000000.00m
             });
-            // Registro7
+            // Reg7
             _context.Employees.Add(new Shared.Entities.Employee
             {
                 FirstName = "Hilary",
@@ -79,7 +79,7 @@ public class SeedDb
                 HireDate = new DateTime(2021, 10, 05, 11, 12, 0),
                 Salary = new Random().Next(1100000, 10000001)
             });
-            // Registro8
+            // Reg8
             _context.Employees.Add(new Shared.Entities.Employee
             {
                 FirstName = "Juan Pablo",
@@ -88,7 +88,7 @@ public class SeedDb
                 HireDate = new DateTime(2020, 6, 25, 13, 42, 0),
                 Salary = 2500000.00m
             });
-            // Registro9
+            // Reg9
             _context.Employees.Add(new Shared.Entities.Employee
             {
                 FirstName = "Valentina",
@@ -97,7 +97,7 @@ public class SeedDb
                 HireDate = new DateTime(2022, 4, 12, 14, 36, 0),
                 Salary = 1250000.00m
             });
-            // Registro10
+            // Reg10
             _context.Employees.Add(new Shared.Entities.Employee
             {
                 FirstName = "Jesica",
