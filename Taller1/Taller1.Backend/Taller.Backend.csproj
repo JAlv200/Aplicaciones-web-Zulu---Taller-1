@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Taller1.Shared\Taller1.Shared.csproj" />
+    <ProjectReference Include="..\Taller1.Shared\Taller.Shared.csproj" />
   </ItemGroup>
 
 </Project>

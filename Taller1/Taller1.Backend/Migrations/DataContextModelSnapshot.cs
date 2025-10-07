@@ -4,56 +4,56 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Taller1.Backend.Data;
+using Taller.Backend.Data;
+
 
 #nullable disable
 
-namespace Taller1.Backend.Migrations
+namespace Taller1.Backend.Migrations;
+
+[DbContext(typeof(DataContext))]
+partial class DataContextModelSnapshot : ModelSnapshot
 {
-    [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    protected override void BuildModel(ModelBuilder modelBuilder)
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.8")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+        modelBuilder
+            .HasAnnotation("ProductVersion", "9.0.8")
+            .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+        SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Taller1.Shared.Entities.Employee", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+        modelBuilder.Entity("Taller1.Shared.Entities.Employee", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                b.Property<string>("FirstName")
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .HasColumnType("nvarchar(30)");
 
-                    b.Property<DateTime?>("HireDate")
-                        .HasColumnType("datetime2");
+                b.Property<DateTime?>("HireDate")
+                    .HasColumnType("datetime2");
 
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("bit");
+                b.Property<bool?>("IsActive")
+                    .HasColumnType("bit");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                b.Property<string>("LastName")
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .HasColumnType("nvarchar(30)");
 
-                    b.Property<decimal>("Salary")
-                        .HasColumnType("decimal(18,2)");
+                b.Property<decimal>("Salary")
+                    .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Employees");
-                });
+                b.ToTable("Employees");
+            });
 #pragma warning restore 612, 618
-        }
     }
 }

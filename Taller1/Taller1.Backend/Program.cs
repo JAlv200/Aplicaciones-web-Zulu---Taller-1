@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Taller1.Backend.Data;
-using Taller1.Backend.Repositories.Implementations;
-using Taller1.Backend.Repositories.Interfaces;
-using Taller1.Backend.UnitsOfWork.Implementations;
-using Taller1.Backend.UnitsOfWork.Interfaces;
+using Taller.Backend.Data;
+using Taller.Backend.Repositories.Implementations;
+using Taller.Backend.Repositories.Interfaces;
+using Taller.Backend.UnitsOfWork.Implementations;
+using Taller.Backend.UnitsOfWork.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,6 +1,6 @@
-﻿using Taller1.Shared.Responses;
+﻿using Taller.Shared.Responses;
 
-namespace Taller1.Backend.UnitsOfWork.Interfaces;
+namespace Taller.Backend.UnitsOfWork.Interfaces;
 
 public interface IGenericUnitOfWork<T> where T : class
 {

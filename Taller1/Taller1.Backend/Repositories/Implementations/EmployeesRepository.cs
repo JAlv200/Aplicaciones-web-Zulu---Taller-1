@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Taller1.Backend.Data;
-using Taller1.Backend.Repositories.Interfaces;
-using Taller1.Shared.Entities;
-using Taller1.Shared.Responses;
+using Taller.Backend.Data;
+using Taller.Backend.Repositories.Interfaces;
+using Taller.Shared.Entities;
+using Taller.Shared.Responses;
 
-namespace Taller1.Backend.Repositories.Implementations;
+namespace Taller.Backend.Repositories.Implementations;
 
 public class EmployeesRepository : GenericRepository<Employee>, IEmployeesRepository
 {

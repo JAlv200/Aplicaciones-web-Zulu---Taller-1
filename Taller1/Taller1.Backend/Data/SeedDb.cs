@@ -1,4 +1,6 @@
-﻿namespace Taller1.Backend.Data;
+﻿using Taller.Shared.Entities;
+
+namespace Taller.Backend.Data;
 
 public class SeedDb
 {
@@ -20,7 +22,7 @@ public class SeedDb
         if (!_context.Employees.Any())
         {
             // Reg1
-            _context.Employees.Add(new Shared.Entities.Employee
+            _context.Employees.Add(new Employee
             {
                 FirstName = "Juan Fernando",
                 LastName = "Garcia",
@@ -29,14 +31,14 @@ public class SeedDb
                 Salary = new Random().Next(1100000, 10000001) // Generate random numbers between 1.1M and 10M
             });
             // Reg2
-            _context.Employees.Add(new Shared.Entities.Employee
+            _context.Employees.Add(new Employee
             {
                 FirstName = "Ana Marina",
                 LastName = "Giraldo",
                 Salary = 2500000.00m
             });
             // Reg3
-            _context.Employees.Add(new Shared.Entities.Employee
+            _context.Employees.Add(new Employee
             {
                 FirstName = "Juan Esteban",
                 LastName = "Vargas",
@@ -45,7 +47,7 @@ public class SeedDb
                 Salary = new Random().Next(1100000, 10000001)
             });
             // Reg4
-            _context.Employees.Add(new Shared.Entities.Employee
+            _context.Employees.Add(new Employee
             {
                 FirstName = "Sofia",
                 LastName = "Garcia",
@@ -53,7 +55,7 @@ public class SeedDb
                 Salary = 1750000.00m
             });
             // Reg5
-            _context.Employees.Add(new Shared.Entities.Employee
+            _context.Employees.Add(new Employee
             {
                 FirstName = "Leonardo",
                 LastName = "Yepes",
@@ -62,7 +64,7 @@ public class SeedDb
                 Salary = new Random().Next(1100000, 10000001)
             });
             // Reg6
-            _context.Employees.Add(new Shared.Entities.Employee
+            _context.Employees.Add(new Employee
             {
                 FirstName = "Juan Pablo",
                 LastName = "Martinez",
@@ -71,7 +73,7 @@ public class SeedDb
                 Salary = 3000000.00m
             });
             // Reg7
-            _context.Employees.Add(new Shared.Entities.Employee
+            _context.Employees.Add(new Employee
             {
                 FirstName = "Hilary",
                 LastName = "Ospina",
@@ -80,7 +82,7 @@ public class SeedDb
                 Salary = new Random().Next(1100000, 10000001)
             });
             // Reg8
-            _context.Employees.Add(new Shared.Entities.Employee
+            _context.Employees.Add(new Employee
             {
                 FirstName = "Juan Pablo",
                 LastName = "Velez",
@@ -89,7 +91,7 @@ public class SeedDb
                 Salary = 2500000.00m
             });
             // Reg9
-            _context.Employees.Add(new Shared.Entities.Employee
+            _context.Employees.Add(new Employee
             {
                 FirstName = "Valentina",
                 LastName = "Lopez",
@@ -98,7 +100,7 @@ public class SeedDb
                 Salary = 1250000.00m
             });
             // Reg10
-            _context.Employees.Add(new Shared.Entities.Employee
+            _context.Employees.Add(new Employee
             {
                 FirstName = "Jesica",
                 LastName = "Fernandez",

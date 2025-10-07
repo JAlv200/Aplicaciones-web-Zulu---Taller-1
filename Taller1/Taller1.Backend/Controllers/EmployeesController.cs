@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Taller1.Backend.Data;
-using Taller1.Backend.UnitsOfWork.Interfaces;
-using Taller1.Shared.Entities;
+using Taller.Backend.UnitsOfWork.Interfaces;
+using Taller.Shared.Entities;
 
-namespace Taller1.Backend.Controllers;
+namespace Taller.Backend.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

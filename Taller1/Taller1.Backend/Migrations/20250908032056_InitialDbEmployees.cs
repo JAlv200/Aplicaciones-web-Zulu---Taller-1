@@ -3,37 +3,36 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Taller1.Backend.Migrations
+namespace Taller1.Backend.Migrations;
+
+/// <inheritdoc />
+public partial class InitialDbEmployees : Migration
 {
     /// <inheritdoc />
-    public partial class InitialDbEmployees : Migration
+    protected override void Up(MigrationBuilder migrationBuilder)
     {
-        /// <inheritdoc />
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.CreateTable(
-                name: "Employees",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    HireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Salary = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Employees", x => x.Id);
-                });
-        }
+        migrationBuilder.CreateTable(
+            name: "Employees",
+            columns: table => new
+            {
+                Id = table.Column<int>(type: "int", nullable: false)
+                    .Annotation("SqlServer:Identity", "1, 1"),
+                FirstName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                IsActive = table.Column<bool>(type: "bit", nullable: false),
+                HireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                Salary = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("PK_Employees", x => x.Id);
+            });
+    }
 
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropTable(
-                name: "Employees");
-        }
+    /// <inheritdoc />
+    protected override void Down(MigrationBuilder migrationBuilder)
+    {
+        migrationBuilder.DropTable(
+            name: "Employees");
     }
 }

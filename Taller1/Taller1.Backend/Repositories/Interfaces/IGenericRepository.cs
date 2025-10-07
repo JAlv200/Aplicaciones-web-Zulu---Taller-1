@@ -1,6 +1,6 @@
-﻿using Taller1.Shared.Responses;
+﻿using Taller.Shared.Responses;
 
-namespace Taller1.Backend.Repositories.Interfaces;
+namespace Taller.Backend.Repositories.Interfaces;
 
 public interface IGenericRepository<T> where T : class
 {

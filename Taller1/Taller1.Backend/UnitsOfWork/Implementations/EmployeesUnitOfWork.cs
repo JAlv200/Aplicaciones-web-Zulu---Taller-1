@@ -1,9 +1,9 @@
-﻿using Taller1.Backend.Repositories.Interfaces;
-using Taller1.Backend.UnitsOfWork.Interfaces;
-using Taller1.Shared.Entities;
-using Taller1.Shared.Responses;
+﻿using Taller.Backend.Repositories.Interfaces;
+using Taller.Backend.UnitsOfWork.Interfaces;
+using Taller.Shared.Entities;
+using Taller.Shared.Responses;
 
-namespace Taller1.Backend.UnitsOfWork.Implementations;
+namespace Taller.Backend.UnitsOfWork.Implementations;
 
 public class EmployeesUnitOfWork : IEmployeesUnitOfWork
 {

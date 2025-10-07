@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Taller1.Shared.Entities;
+using Taller.Shared.Entities;
 
-namespace Taller1.Backend.Data;
+namespace Taller.Backend.Data;
 
 public class DataContext : DbContext
 {

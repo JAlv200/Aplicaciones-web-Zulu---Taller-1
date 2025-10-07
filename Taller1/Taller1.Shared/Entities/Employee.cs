@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Taller1.Shared.Entities;
+namespace Taller.Shared.Entities;
 
 public class Employee
 {

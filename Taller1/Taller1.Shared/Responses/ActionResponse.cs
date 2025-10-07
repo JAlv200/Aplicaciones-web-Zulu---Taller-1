@@ -1,4 +1,4 @@
-﻿namespace Taller1.Shared.Responses;
+﻿namespace Taller.Shared.Responses;
 
 public class ActionResponse<T>
 {

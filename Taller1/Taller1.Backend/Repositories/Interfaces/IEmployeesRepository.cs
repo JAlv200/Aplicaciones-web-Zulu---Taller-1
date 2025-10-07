@@ -1,7 +1,7 @@
-﻿using Taller1.Shared.Entities;
-using Taller1.Shared.Responses;
+﻿using Taller.Shared.Entities;
+using Taller.Shared.Responses;
 
-namespace Taller1.Backend.Repositories.Interfaces;
+namespace Taller.Backend.Repositories.Interfaces;
 
 public interface IEmployeesRepository
 {

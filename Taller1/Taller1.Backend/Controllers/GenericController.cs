@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Taller1.Backend.UnitsOfWork.Interfaces;
+using Taller.Backend.UnitsOfWork.Interfaces;
 
-namespace Taller1.Backend.Controllers;
+namespace Taller.Backend.Controllers;
 
 public class GenericController<T> : Controller where T : class
 {
