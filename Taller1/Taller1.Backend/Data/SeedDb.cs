@@ -1,4 +1,5 @@
-﻿using Taller.Shared.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Taller.Shared.Entities;
 
 namespace Taller.Backend.Data;
 
@@ -14,7 +15,17 @@ public class SeedDb
     public async Task SeedAsync()
     {
         await _context.Database.EnsureCreatedAsync();
+        await CheckEmployeesScript();
         await CheckEmployeesAsync();
+    }
+
+    private async Task CheckEmployeesScript()
+    {
+        if (!_context.Employees.Any())
+        {
+            var employeesSQLScript = File.ReadAllText("Data\\employees_insert.sql");
+            await _context.Database.ExecuteSqlRawAsync(employeesSQLScript);
+        }
     }
 
     private async Task CheckEmployeesAsync()
