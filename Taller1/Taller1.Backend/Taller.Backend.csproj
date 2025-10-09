@@ -20,4 +20,10 @@
     <ProjectReference Include="..\Taller1.Shared\Taller.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\employees_insert.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
