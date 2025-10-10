@@ -1,0 +1,22 @@
+﻿@page "/employees"
+
+<h3>EmployeesIndex</h3>
+
+@if (employees == null)
+{
+    <Loading Label="Cargando empleados, espere por favor ..."/>
+}
+else
+{
+    <table>
+        <th>
+            <td>Empleado</td>
+        </th>
+        @foreach (var employee in employees)
+        {
+            <tr>
+                <td>@employee.FirstName</td>
+            </tr>
+        }
+    </table>
+}
