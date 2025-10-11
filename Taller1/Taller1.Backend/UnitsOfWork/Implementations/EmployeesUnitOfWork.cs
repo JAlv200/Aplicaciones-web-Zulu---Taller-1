@@ -19,7 +19,4 @@ public class EmployeesUnitOfWork : GenericUnitOfWork<Employee>, IEmployeesUnitOf
 
     public override async Task<ActionResponse<IEnumerable<Employee>>> GetAsync(PaginationDTO pagination) =>
         await _employeesRepository.GetAsync(pagination);
-
-    public async Task<ActionResponse<IEnumerable<Employee>>> GetAsync(string name) =>
-    await _employeesRepository.GetAsync(name);
 }

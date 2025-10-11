@@ -35,6 +35,11 @@ public class EmployeesRepository : GenericRepository<Employee>, IEmployeesReposi
         var queryable = _context.Employees
             .AsQueryable();
 
+        if (!string.IsNullOrWhiteSpace(pagination.Filter))
+        {
+            return await FilterName(pagination);
+        }
+
         return new ActionResponse<IEnumerable<Employee>>
         {
             WasSuccess = true,
@@ -45,9 +50,18 @@ public class EmployeesRepository : GenericRepository<Employee>, IEmployeesReposi
         };
     }
 
-    public virtual async Task<ActionResponse<IEnumerable<Employee>>> GetAsync(string name) => new ActionResponse<IEnumerable<Employee>>
+    public virtual async Task<ActionResponse<IEnumerable<Employee>>> FilterName(PaginationDTO pagination) // Converted GetAsync(string name) to this method, because ... should have probably deleted it ... but i like this method
     {
-        WasSuccess = true,
-        Result = await _context.Employees.Where(x => x.FirstName.Contains(name) || x.LastName.Contains(name)).ToListAsync()
-    };
+        var queryable = _context.Employees
+            .AsQueryable()
+            .Where(x => x.FirstName.ToLower().Contains(pagination.Filter!.ToLower()) || x.LastName.ToLower().Contains(pagination.Filter!.ToLower()))
+            .OrderBy(x => x.LastName)
+            .Paginate(pagination);
+
+        return new ActionResponse<IEnumerable<Employee>>
+        {
+            WasSuccess = true,
+            Result = await queryable.ToListAsync()
+        };
+    }
 }

@@ -26,15 +26,4 @@ public class EmployeesController : GenericController<Employee>
         }
         return BadRequest();
     }
-
-    [HttpGet("{name}")]
-    public virtual async Task<IActionResult> GetAsync(string name)
-    {
-        var action = await _employeesUnitOfWork.GetAsync(name);
-        if (action.WasSuccess)
-        {
-            return Ok(action.Result);
-        }
-        return BadRequest(action.Message);
-    }
 }
