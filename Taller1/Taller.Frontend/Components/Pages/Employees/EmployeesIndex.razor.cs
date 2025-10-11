@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
-using System;
-using System.Diagnostics.Metrics;
 using System.Net;
 using Taller.Frontend.Components.Shared;
 using Taller.Frontend.Repositories;
