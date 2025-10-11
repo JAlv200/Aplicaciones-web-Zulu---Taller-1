@@ -1,0 +1,56 @@
+﻿<EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudTextField Label="Nombres"
+                  @bind-Value="@Employee.FirstName"
+                  For="@(() => Employee.FirstName)"
+                  Class="mb-4"
+                  Placeholder="Nombres"/>
+
+    <MudTextField Label="Apellidos"
+                  @bind-Value="@Employee.LastName"
+                  For="@(() => Employee.LastName)"
+                  Class="mb-4"
+                  Placeholder="Apellidos"/>
+
+    <MudCheckBox @bind-Value="@Employee.IsActive"
+                 For="@(() => Employee.IsActive)"
+                 Label="Activo"
+                 Color="Color.Primary"
+                 Class="mb-4" />
+
+
+    <MudDatePicker Label="Fecha de contratación"
+                   @bind-Date="@Employee.HireDate"
+                   For="@(() => Employee.HireDate)"
+                   Class="mb-4"
+                   DateFormat="G"
+                   Editable="true"
+                   Placeholder="Ingrese una fecha"
+                   MaxDate="DateTime.Today" /> @*Limits the dates to Today, so no employees can be hired "in the future"*@
+                   
+
+    <MudNumericField Label="Salario"
+                  @bind-Value="@Employee.Salary"
+                  For="@(() => Employee.Salary)"
+                  Class="mb-4"
+                  Placeholder="1000000"/>
+
+    <MudButton Variant="Variant.Outlined"
+               StartIcon="@Icons.Material.Filled.ArrowBack"
+               Color="Color.Info"
+               OnClick="ReturnAction">
+        <MudHidden xs="true">
+            Cancelar
+        </MudHidden>
+    </MudButton>
+
+    <MudButton Variant="Variant.Outlined"
+               StartIcon="@Icons.Material.Filled.Check"
+               Color="Color.Primary"
+               ButtonType="ButtonType.Submit">
+        <MudHidden xs="true">
+            Guardar Cambios
+        </MudHidden>
+    </MudButton>
+</EditForm>
+

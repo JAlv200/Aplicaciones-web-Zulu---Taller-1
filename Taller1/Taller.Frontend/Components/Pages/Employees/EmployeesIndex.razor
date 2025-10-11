@@ -43,7 +43,7 @@ else
                     @EmployeeStatusText(context.IsActive)
                 </MudText>
             </MudTd>
-            <MudTd>@context.HireDate?.ToString("yyyy/MM/dd")</MudTd>
+            <MudTd>@context.HireDate?.ToString("G")</MudTd>
             <MudTd>@context.Salary</MudTd>
             <MudTd>
                 <MudTooltip Text="Editar">
