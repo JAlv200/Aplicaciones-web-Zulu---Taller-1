@@ -17,6 +17,17 @@ public class SeedDb
         await _context.Database.EnsureCreatedAsync();
         await CheckEmployeesScript();
         await CheckEmployeesAsync();
+        await CheckCountriesFullScriptAsync();
+    }
+
+    private async Task CheckCountriesFullScriptAsync()
+    {
+        if (!_context.Countries.Any())
+        {
+            var countriesSQLScript = File.ReadAllText("Data\\CountriesStatesCities.sql");
+            _context.Database.SetCommandTimeout(300); // Increase time to read and execute the SQL Script, not enough RAM/Time to load all the data
+            await _context.Database.ExecuteSqlRawAsync(countriesSQLScript);
+        }
     }
 
     private async Task CheckEmployeesScript()
