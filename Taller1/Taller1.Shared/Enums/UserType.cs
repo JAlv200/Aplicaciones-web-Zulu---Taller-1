@@ -1,4 +1,6 @@
-﻿namespace Taller.Shared.Enums;
+﻿using System.ComponentModel;
+
+namespace Taller.Shared.Enums;
 
 public enum UserType
 {
