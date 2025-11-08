@@ -17,6 +17,13 @@ public class EmployeesRepository : GenericRepository<Employee>, IEmployeesReposi
         _context = context;
     }
 
+    public async Task<IEnumerable<Employee>> GetComboAsync()
+    {
+        return await _context.Employees
+            .OrderBy(e => e.LastName)
+            .ToListAsync();
+    }
+
     public override async Task<ActionResponse<IEnumerable<Employee>>> GetAsync()
     {
         var employees = await _context.Employees

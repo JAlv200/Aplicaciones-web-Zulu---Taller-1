@@ -6,5 +6,7 @@ namespace Taller.Backend.Repositories.Interfaces;
 
 public interface IEmployeesRepository
 {
+    Task<IEnumerable<Employee>> GetComboAsync();
+
     Task<ActionResponse<IEnumerable<Employee>>> GetAsync(PaginationDTO pagination);
 }

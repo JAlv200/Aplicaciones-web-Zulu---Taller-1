@@ -49,7 +49,7 @@ builder.Services.AddScoped<ICountriesUnitOfWork, CountriesUnitOfWork>();
 builder.Services.AddScoped<IStatesUnitOfWork, StatesUnitOfWork>();
 builder.Services.AddScoped<IUsersUnitOfWork, UsersUnitOfWork>();
 
-// Verificacion passwords
+// Password verification
 builder.Services.AddIdentity<User, IdentityRole>(x =>
 {
     x.User.RequireUniqueEmail = true;
@@ -63,7 +63,7 @@ builder.Services.AddIdentity<User, IdentityRole>(x =>
     .AddEntityFrameworkStores<DataContext>()
     .AddDefaultTokenProviders();
 
-// Habilitar token desde swagger
+// Swagger Token authorization
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Orders Backend", Version = "v1" });

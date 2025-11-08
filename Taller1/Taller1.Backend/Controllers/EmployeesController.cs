@@ -19,6 +19,10 @@ public class EmployeesController : GenericController<Employee>
         _employeesUnitOfWork = employeesUnitOfWork;
     }
 
+    [AllowAnonymous] // No JWT security in employee combos
+    [HttpGet("combo")]
+    public async Task<IActionResult> GetComboAsync() => Ok(await _employeesUnitOfWork.GetComboAsync());
+
     [HttpGet("paginated")]
     public override async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)
     {
