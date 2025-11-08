@@ -2,7 +2,21 @@
 
 <PageTitle>Menu de Inicio</PageTitle>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Hola!, Bienvenidos a la aplicacion de empleados</MudText>
+<MudText Typo="Typo.h2" GutterBottom="true">Aplicacion de empleados</MudText>
+
+<AuthorizeView Roles="Admin">
+    <Authorized>
+        <MudText Typo="Typo.h3" Class="m-2" GutterBottom="true">Bienvenido administrador @context.User.Identity?.Name, se encuentra autenticado</MudText>
+    </Authorized>
+    <NotAuthorized>
+        <MudText Typo="Typo.h3" Class="m-2" GutterBottom="true">Se encuentra como usuario anonimo</MudText>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+
+<MudText Class="m-2">Aplicacion empleados - Curso servicios WEB 2025-2</MudText>
 
 
 
