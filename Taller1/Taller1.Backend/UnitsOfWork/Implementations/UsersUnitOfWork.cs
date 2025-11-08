@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Taller.Backend.Repositories.Interfaces;
 using Taller.Backend.UnitsOfWork.Interfaces;
+using Taller.Shared.DTOs;
 using Taller.Shared.Entities;
 
 namespace Taller.Backend.UnitsOfWork.Implementations;
@@ -13,6 +14,11 @@ public class UsersUnitOfWork : IUsersUnitOfWork
     {
         _usersRepository = usersRepository;
     }
+
+    public async Task<SignInResult> LoginAsync(LoginDTO model) =>
+        await _usersRepository.LoginAsync(model);
+
+    public async Task LogoutAsync() => await _usersRepository.LogoutAsync();
 
     public async Task<IdentityResult> AddUserAsync(User user, string password) =>
         await _usersRepository.AddUserAsync(user, password);

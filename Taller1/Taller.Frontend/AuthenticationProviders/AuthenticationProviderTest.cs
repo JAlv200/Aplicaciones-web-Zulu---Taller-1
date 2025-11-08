@@ -17,6 +17,6 @@ public class AuthenticationProviderTest : AuthenticationStateProvider
                 new(ClaimTypes.Role, "Admin")
             ],
             authenticationType: "test");
-        return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(anonymous)));
+        return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(admin)));
     }
 }
