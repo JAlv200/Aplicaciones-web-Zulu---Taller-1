@@ -6,6 +6,7 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json.Serialization;
 using Taller.Backend.Data;
+using Taller.Backend.Helpers;
 using Taller.Backend.Repositories.Implementations;
 using Taller.Backend.Repositories.Interfaces;
 using Taller.Backend.UnitsOfWork.Implementations;
@@ -36,6 +37,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // Injections
 builder.Services.AddScoped(typeof(IGenericUnitOfWork<>), typeof(GenericUnitOfWork<>));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IFileStorage, FileStorage>();
 
 builder.Services.AddScoped<IEmployeesRepository, EmployeesRepository>();
 builder.Services.AddScoped<ICitiesRepository, CitiesRepository>();

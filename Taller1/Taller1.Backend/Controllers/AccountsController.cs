@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Taller.Backend.Helpers;
 using Taller.Backend.UnitsOfWork.Interfaces;
 using Taller.Shared.DTOs;
 using Taller.Shared.Entities;
@@ -15,17 +16,28 @@ public class AccountsController : ControllerBase
 {
     private readonly IUsersUnitOfWork _usersUnitOfWork;
     private readonly IConfiguration _configuration;
+    private readonly IFileStorage _fileStorage;
+    private readonly string _container;
 
-    public AccountsController(IUsersUnitOfWork usersUnitOfWork, IConfiguration configuration)
+    public AccountsController(IUsersUnitOfWork usersUnitOfWork, IConfiguration configuration, IFileStorage fileStorage)
     {
         _usersUnitOfWork = usersUnitOfWork;
         _configuration = configuration;
+        _fileStorage = fileStorage;
+        _container = "users";
     }
 
     [HttpPost("CreateUser")]
     public async Task<IActionResult> CreateUser([FromBody] UserDTO model)
     {
         User user = model;
+
+        if (!string.IsNullOrEmpty(model.Photo))
+        {
+            var PhotoUser = Convert.FromBase64String(model.Photo);
+            model.Photo = await _fileStorage.SaveFileAsync(PhotoUser, ".jpg", _container);
+        }
+
         var result = await _usersUnitOfWork.AddUserAsync(user, model.password);
         if (result.Succeeded)
         {
