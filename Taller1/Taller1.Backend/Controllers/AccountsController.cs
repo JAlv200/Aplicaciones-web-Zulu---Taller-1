@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -75,6 +76,36 @@ public class AccountsController : ControllerBase
     public async Task<IActionResult> GetAsync()
     {
         return Ok(await _usersUnitOfWork.GetUserAsync(User.Identity!.Name!));
+    }
+
+    [HttpPost("changePassword")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    public async Task<IActionResult> ChangePasswordAsync(ChangePasswordDTO model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var user = await _usersUnitOfWork.GetUserAsync(User.Identity!.Name!);
+        if (user is null)
+        {
+            return NotFound();
+        }
+
+        var result = await _usersUnitOfWork.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+        if (!result.Succeeded)
+        {
+            var message = result.Errors.First<IdentityError>().Description ?? "Error al validar contraseña";
+            return new ContentResult
+            {
+                Content = message,
+                ContentType = "text/plain",
+                StatusCode = 400
+            };
+        }
+
+        return NoContent();
     }
 
     [HttpPost("CreateUser")]

@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Text.Json;
 
 namespace Taller.Frontend.Repositories;
 
@@ -29,7 +30,29 @@ public class HttpResponseWrapper<T>
         }
         if (statusCode == HttpStatusCode.BadRequest)
         {
-            return await HttpResponseMessage.Content.ReadAsStringAsync();
+            var content = await HttpResponseMessage.Content.ReadAsStringAsync();
+
+            try
+            {
+                // Deserialize JSON Object that ASP.NET Core sends with the error of the data notations
+                var errorObj = JsonSerializer.Deserialize<JsonElement>(content);
+
+                // Tryint to extract error
+                if (errorObj.TryGetProperty("errors", out var errors))
+                {
+                    var firstError = errors.EnumerateObject().First();
+                    var firstMessage = firstError.Value.EnumerateArray().First().GetString();
+                    return firstMessage ?? content;
+                }
+
+                // IF its just a string
+                return content.Trim('"');
+            }
+            catch
+            {
+                return content;
+            }
+            ;
         }
         if (statusCode == HttpStatusCode.Unauthorized)
         {

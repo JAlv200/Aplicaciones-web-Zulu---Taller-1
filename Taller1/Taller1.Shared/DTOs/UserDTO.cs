@@ -11,7 +11,7 @@ public class UserDTO : User
     [StringLength(20, MinimumLength = 8, ErrorMessage = "El campo {0} debe tener entre {2} y {1} carácteres.")]
     public string password { get; set; } = null!;
 
-    [Compare("password", ErrorMessage = "La contraseña y la confirmacion no coinciden.")]
+    [Compare("password", ErrorMessage = "La contraseña y la confirmación no coinciden.")]
     [Display(Name = "Confirmación de contraseña")]
     [DataType(DataType.Password)]
     [Required(ErrorMessage = "El campo {0} es obligatorio.")]
