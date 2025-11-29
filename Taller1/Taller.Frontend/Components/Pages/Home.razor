@@ -4,9 +4,16 @@
 
 <MudText Typo="Typo.h2" GutterBottom="true">Aplicacion de empleados</MudText>
 
-<AuthorizeView Roles="Admin">
+<AuthorizeView Roles="Admin, User">
     <Authorized>
-        <MudText Typo="Typo.h3" Class="m-2" GutterBottom="true">Bienvenido administrador @context.User.Identity?.Name, se encuentra autenticado</MudText>
+        @if (context.User.IsInRole("Admin"))
+        {
+            <MudText Typo="Typo.h3" Class="m-2" GutterBottom="true">Bienvenido administrador @context.User.Identity?.Name, se encuentra autenticado</MudText>
+        }
+        else
+        {
+            <MudText Typo="Typo.h3" Class="m-2" GutterBottom="true">Bienvenido Usuario @context.User.Identity?.Name, se encuentra autenticado</MudText>
+        }
     </Authorized>
     <NotAuthorized>
         <MudText Typo="Typo.h3" Class="m-2" GutterBottom="true">Se encuentra como usuario anonimo</MudText>
