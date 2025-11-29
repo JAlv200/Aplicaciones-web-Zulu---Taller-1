@@ -34,4 +34,12 @@ public class UsersUnitOfWork : IUsersUnitOfWork
 
     public async Task<bool> IsUserInRoleAsync(User user, string roleName) =>
         await _usersRepository.IsUserInRoleAsync(user, roleName);
+
+    public async Task<User> GetUser(Guid userId) => await _usersRepository.GetUser(userId);
+
+    public async Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword) =>
+        await _usersRepository.ChangePasswordAsync(user, currentPassword, newPassword);
+
+    public async Task<IdentityResult> UpdateUserAsync(User user) =>
+        await _usersRepository.UpdateUserAsync(user);
 }

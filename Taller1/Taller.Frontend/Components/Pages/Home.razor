@@ -4,6 +4,8 @@
 
 <MudText Typo="Typo.h2" GutterBottom="true">Aplicacion de empleados</MudText>
 
+<MudSpacer/>
+
 <AuthorizeView Roles="Admin, User">
     <Authorized>
         @if (context.User.IsInRole("Admin"))
@@ -21,7 +23,7 @@
 </AuthorizeView>
 
 
-
+<MudSpacer />
 
 <MudText Class="m-2">Aplicacion empleados - Curso servicios WEB 2025-2</MudText>
 
