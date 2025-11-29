@@ -8,7 +8,7 @@ using Taller.Shared.Entities;
 
 namespace Taller.Frontend.Components.Pages.Employees;
 
-[Authorize(Roles = "Admin")]
+[Authorize(Roles = "Admin, User")]
 public partial class EmployeesIndex
 {
     private List<Employee>? Employees { get; set; }

@@ -1,6 +1,6 @@
 ﻿<MudNavMenu>
     <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Inicio</MudNavLink>
-    <AuthorizeView Roles="Admin">
+    <AuthorizeView Roles="User, Admin">
         <Authorized>
             <MudNavLink Href="employees" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Person">Empleados</MudNavLink>
         </Authorized>
